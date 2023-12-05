@@ -9,12 +9,8 @@
             font-family:'Courier New', Courier, monospace;
         }
 
-        ul {
-            display: flex;
-            list-style: none;
-        }
 
-        li {
+        div {
             width: 300px;
             height: 150px;
             color: rgb(0, 0, 0);
@@ -25,40 +21,24 @@
             margin: 10px;
         }
 
-        span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+        
     </style>
 </head>
 <body>
-    <ul>
-        <li id="x1" onclick="clicou()"><span>Botão 1</span></li>
-        <li id="x2" onclick="clicou()"><span>Botão 2</span></li>
-        <li id="x3" onclick="clicou()"><span>Botão 3</span></li>
-    </ul>
+    <div id="b1" onclick="clicou()">
+        botao 1
+    </div>
+
+    <div id="b2" onclick="clicou()">
+        botao 2
+    </div>
+
+    <div id="b3" onclick="clicou()">
+        botao 3
+    </div>
+    
     <script>
-        
-       
-
-
-        function clicou() {
-
-            var b1 = document.querySelector('li#x1')
-            alert(`voce clicou no ${b1} `)
-        };
-
-        function clicou() {
-            var b2 = document.querySelector('li#x2')
-            alert('voce clicou no Botao 2')
-        };
-
-        function clicou() {
-            var b3 = document.querySelector('li#x3')
-            alert('voce clicou no Botao 3')
-        };
+        var a 
     </script>
 </body>
 </html>

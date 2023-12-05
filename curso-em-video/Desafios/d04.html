@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma</title>
+</head>
+<body>
+    <input type="number" name="numa" id="numa"> +
+    <input type="number" name="numb" id="numb">
+
+    <input type="submit" id="sub" value="Somar">
+
+    <div id="res"> Resutado</div>
+
+    <script>
+        
+
+        sub.onclick = function() {
+            var numa = document.getElementById('numa')
+            var numb = document.getElementById('numb')
+            var sub = document.getElementById('sub')
+            var res = document.getElementById('res')
+            var na = Number(numa.value)
+            var nb = Number(numb.value)
+            var r = na + nb
+            res.innerText = `A soma entre ${na} + ${nb} é igual a: ${r}`
+        }
+
+    </script>
+</body>
+</html>

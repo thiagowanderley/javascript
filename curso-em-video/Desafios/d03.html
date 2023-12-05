@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            font-weight: bold;
+        }
+        button {
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Antes e Depois</h1>
+    <button id="btn">Antecessor e Sucessor</button>
+
+    <script>
+        var btn = document.getElementById('btn')
+
+        btn.onclick = function() {
+           var num = Number(prompt('Digite um numero inteiro'))
+           var nma = num + 1
+           var nme = num - 1
+           alert(`O sucessor do numero escolhido é ${nma} e o antecessor é o numero ${nme}`)
+        }
+    </script>
+</body>
+</html>

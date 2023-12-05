@@ -5,40 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>d01</title>
     <style>
-        * {
-            font-family:'Courier New', Courier, monospace;
-        }
-
-
-        div {
-            width: 300px;
-            height: 150px;
-            color: rgb(0, 0, 0);
-            background-color: lightcyan;
-            border: solid black 1px;
-            border-radius: 5px;
-            position: relative;
-            margin: 10px;
-        }
-
         
     </style>
 </head>
 <body>
-    <div id="b1" onclick="clicou()">
-        botao 1
-    </div>
 
-    <div id="b2" onclick="clicou()">
-        botao 2
-    </div>
-
-    <div id="b3" onclick="clicou()">
-        botao 3
-    </div>
+<button id="bt1">Botão 1</button>
+<button id="bt2">Botão 2</button>
+<button id="bt3">Botão 3</button>
     
     <script>
-        var a 
+        var b1 = document.getElementById('bt1')
+        var b2 = document.getElementById('bt2')
+        var b3 = document.getElementById('bt3')
+        
+        b1.onclick = function() {
+            alert('Botão 1')
+        }
+
+        b2.onclick = function() {
+            alert('Botão 2')
+        }
+
+        b3.onclick = function() {
+            alert('Botão 3')
+        }
+        
     </script>
 </body>
 </html>

@@ -14,16 +14,19 @@
 </head>
 <body>
     <h1 id="t">Ola Mundo</h1>
-    <h2 id="t">Titulo 2</h2>
-    <p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, laboriosam? Doloremque, quas ipsum iste dolore, dignissimos ad fugiat error blanditiis earum deserunt quam hic magni vitae fugit quod voluptatem repellat!</p>
+    <h1 id="t">Titulo 2</h1>
+    <p class="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, laboriosam? Doloremque, quas ipsum iste dolore, dignissimos ad fugiat error blanditiis earum deserunt quam hic magni vitae fugit quod voluptatem repellat!</p>
 
-    <p id="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid aspernatur voluptatem eum sapiente! Odio suscipit natus officiis nisi et eos eligendi nihil molestiae dignissimos! Temporibus pariatur nisi sunt mollitia aperiam?
+    <p class="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid aspernatur voluptatem eum sapiente! Odio suscipit natus officiis nisi et eos eligendi nihil molestiae dignissimos! Temporibus pariatur nisi sunt mollitia aperiam?
     </p>
 
 
     <script>
-        var titulo = document.getElementsByTagName('h1')[0]
+        var titulo = document.getElementsByTagName('h1')[0,1]
         titulo.style.color = 'black'
+        
+        var paragrafo = document.getElementsByClassName('p1')[0]
+        paragrafo.innerHTML = 'ola'
     </script>
 </body>
 </html>

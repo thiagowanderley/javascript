@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 05</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            font-weight: bold;
+        }
+        button {
+            width: 200px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Desafio do troco</h1>
+    <button id="bt">Comprar produto</button>
+
+    <script>
+        bt.addEventListener('click', troco)
+        function troco() {
+            var bt = document.getElementById('bt')
+            var produto = prompt('Qual produto você está comprando?')
+            var custo = prompt(`Qual o valor do ${produto} ?`)
+            var valor = prompt(`Qual valor você deu para pagar o ${produto} ?`)
+            var p = (produto.value)
+            var c = Number(custo.value)
+            var v = Number(valor.value)
+            var t = Number(t - c)
+            alert(`Você comprou um ${produto}, que custa R$${custo}, deu R$${valor} em dinheiroe vai receber R$${t} de troco. Volte sempre! `)
+        }
+    </script>
+</body>
+</html>

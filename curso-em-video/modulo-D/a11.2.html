@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condições</title>
+</head>
+<body>
+    <label for="pais">Informe seu Pais de origem:</label>
+    <input type="text" name="pais" id="pais" placeholder="Pais de Origem">
+
+    <input id="sub" type="submit" value="Enviar">
+
+    <div id="sit">Situação</div>
+
+    <script>
+
+        sub.addEventListener('click', click)
+
+        function click() {
+            var sub = document.getElementById('sub')
+            var sit = document.getElementById('sit')
+            var pais = document.getElementById('pais')
+            var p = (pais.value)
+            
+
+            if (p != 'Brazil') {
+                sit.innerText = `Ola, voce mora no ${p}. Voce é estrangeiro`
+            } else {
+                sit.innerText = `Ola, voce mora no ${p}. Voce é brasileiro`
+            }
+        }
+
+    </script>
+</body>
+</html>

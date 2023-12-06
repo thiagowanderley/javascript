@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condições</title>
+</head>
+<body>
+    <h1>Teste de Multa</h1>
+    <input type="text" name="vel" id="vel" placeholder="Sua velocidade"> Km/h <br> <br>
+    <button id="env">Enviar</button>
+
+    <div id="res">Resultado</div>
+
+    <script>
+        env.addEventListener('click', situacao)
+        function situacao() {
+            var env = document.getElementById('env')
+            var res = document.getElementById('res')
+            var vel = document.getElementById('vel')
+            var v = Number(vel.value)
+
+            res.innerText = ` Sua velocidade foi de ${v}km/h`
+
+            if (v > 70) {
+                res.innerText += ` <p> Voce foi MULTADO por excesso de velocidade </p> `
+            } else {
+                res.innerText += ` pode seguir viagem normal, voce nao foi multado`
+            }
+        }
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio 06</title>
+    <title>Desafio 07</title>
     <style>
         * {
             font-family: Arial, Helvetica, sans-serif;
@@ -19,39 +19,27 @@
     </style>
 </head>
 <body>
-    <h1>Conversor de medidas</h1>
+    <h1>Conversor de Temperaturas</h1>
     <button id="btn">Converter</button>
     <div id="res">Clique no botão acima para iniciar</div>
 
-    <script>   
-
+    <script>
         btn.addEventListener('click', medida)
 
-        function medida() {
-
+        function medida() { 
             var btn = document.getElementById('btn')
             var res = document.getElementById('res')
-            var met = Number(prompt('Digite a medida em metros (m)'))
-            var km = met / 1000
-            var hm = met / 100
-            var dam = met / 10
-            var dm = met * 10
-            var cm = met * 100
-            var mm = met * 1000
-
+            var cel = Number(prompt('Digite a temperatura em C° (Celsius)'))
+            var kel = cel + 273.15
+            var fr = (cel*9/5) + 32
 
             res.innerHTML = `
             
-            <h1>A distância de ${met} metros, corresponde a:</h1>
-            <p> ${km} quilometros (km)</p>
-            <p> ${hm} hectômetros (hm)</p>
-            <p> ${dam} decametros (dam)</p>
-            <p> ${dm} decimetros (dm)</p>
-            <p> ${cm} centimetros (cm)</p>
-            <p> ${mm} milimetros (mm)</p>
+            <h1>A temperatura de ${cel} °C, corresponde a:</h1>
+            <p> ${kel}°K (Kelvin)</p>
+            <p> ${fr}°F (Fahrenheit)</p>
 
             `
-            
         }
     </script>
 </body>

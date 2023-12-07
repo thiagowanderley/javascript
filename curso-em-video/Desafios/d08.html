@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 08</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            font-weight: bold;
+        }
+        button {
+            width: 200px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Conversor R$ -> U$</h1>
+    <button id="btn">Converter</button>
+    <div id="res">Clique no botão para iniciar</div>
+
+    <script>
+        var cot = Number(prompt('Antes de mais nada. Qual a cotação do dólar agora? '))
+
+        btn.addEventListener('click', cotacao)
+
+        function cotacao() { 
+            var res = document.getElementById('res')
+            var btn = document.getElementById('btn')
+            var rs = Number(prompt('Quantos R$ você tem na carteira para converter para dolar?'))
+            var con = rs / cot
+
+            res.innerHTML = `
+            
+            <p>O valor de <strong>R$${rs}</strong> convertido para U$ equivale a <strong>U$${con}</strong></p>
+            
+            `
+        }
+    </script>
+</body>
+</html>

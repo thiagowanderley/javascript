@@ -12,16 +12,26 @@
     </header>
     <main>
         <section>
-            <div>
+            <div id="frm">
                 <form action="">
-                    <label for="nasc">Ano de Nascimento</label>
+                    <label for="nasc">Ano de Nascimento:</label>
                     <input type="number" name="nasc" id="nasc">
-
-                    se
+                    <br>
+                    <br>
+                    Sexo:
+                    <label for="masculino">Masculino</label>
+                    <input type="radio" name="sexo" id="masculino" value="M">
+                    
+                    <label for="feminino">Feminio</label>
+                    <input type="radio" name="sexo" id="feminino" value="F">
+                    <br>
+                    <br>
+                    <input id="btn" type="submit" value="Enviar">
                 </form>
             </div>
             <div>
-
+                <p>Preencha os dados acima para reproduzir a imagem</p>
+                <p id="resultado">resultado</p>
             </div>
         </section>
     </main>

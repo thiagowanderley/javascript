@@ -58,3 +58,7 @@ footer > p {
     font-weight: bold;
     color: white;
 }
+
+img {
+    border-radius: 50%;
+}

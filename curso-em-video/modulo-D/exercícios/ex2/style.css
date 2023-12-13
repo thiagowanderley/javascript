@@ -59,6 +59,15 @@ footer > p {
     color: white;
 }
 
-img {
-    border-radius: 50%;
+#res {
+    text-align: center;
+    margin-bottom: 10px;
 }
+
+img#foto {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: none;
+}
+

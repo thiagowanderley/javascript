@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relembrando o assunto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            display: flex;
+            height: 100vh;
+        }
+
+        div {
+            height: 300px;
+            width: 300px;
+            border-radius: 20px;
+            border: solid black 2px;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            display: flex;
+        }
+
+        div > p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="cursor">
+        <p>interaja com o cursor do mouse</p>
+    </div>
+    <script>
+        var c = document.getElementById('cursor')
+        c.addEventListener('click', clicar)
+        c.addEventListener('mouseenter', entrar)
+        c.addEventListener('mouseout', sair)
+
+        function clicar() {
+            c.innerText = 'clicou'
+            c.style.backgroundColor = 'green'
+        }
+
+    </script>
+</body>
+</html>

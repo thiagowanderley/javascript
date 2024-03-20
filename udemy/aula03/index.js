@@ -12,3 +12,6 @@ console.log(25.89)
 
 //string + number
 console.log('Nome: Thiago; Idade:', 23)
+
+//Exercício:
+console.log(`Meu nome é "Thiago". Estou aprendendo JavaScript às`, 4 ,`da tarde.` );

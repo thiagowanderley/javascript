@@ -7,24 +7,27 @@ const peso = document.querySelector('#peso')
 const enviar = document.querySelector('#enviar')
 const resultado =document.querySelector('#resultado')
 
+const pessoas = []
+
 enviar.addEventListener('click', enviarD)
 
-    function enviarD() {
+    function enviarD(evento) {
+        evento.preventDefault();
 
-        resultado.innerHTML = `
+        resultado.innerHTML += `
         Nome: ${nome.value} ${sobrenome.value}<br/>
         Altura: ${altura.value}<br/>
-        peso: ${peso.value}
+        peso: ${peso.value}<br/> <br/>
         `
 
-        const pessoa = ([{
+        pessoas.push = ({
             nome:nome.value,
             sobrenome:sobrenome.value,
             altura:altura.value,
             peso:peso.value
-        }]);
+        });
 
-        console.log(pessoa)
+        console.log(pessoas)
 
     }
 }

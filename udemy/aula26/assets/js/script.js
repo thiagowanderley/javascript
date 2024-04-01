@@ -2,20 +2,22 @@
 
 function seuImc () {
 
-    const formulario = document.querySelector('#formulario')
-    const peso = document.querySelector('#peso');
-    const altura = document.querySelector('#altura')
-    const resultado = document.querySelector('#resultado')
-    const enviar = document.querySelector('#enviar')
-    const imc = peso.value / altura.value
+    const formulario = document.querySelector('form#formulario');
+    const peso = document.querySelector('input#peso').value;
+    const pesoV = Number(peso.valueOf(peso))
+    const altura = document.querySelector('input#altura').value;
+    const resultado = document.querySelector('div#resultado');
+    const enviar = document.querySelector('button#enviar');
+    const imc = peso / altura
 
     function enviarDados (evento) {
         evento.preventDefault();
 
-        console.log(peso.value, altura.value, imc)
+        console.log(pesoV)
     }
 
-    enviar.addEventListener('click', enviarDados)
+    formulario.addEventListener('submit', enviarDados)
+
 }
 
 seuImc ();

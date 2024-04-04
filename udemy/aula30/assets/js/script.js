@@ -1,3 +1,4 @@
+/*
 function geral () {
 
     const resultado = document.getElementById('container')
@@ -70,3 +71,18 @@ function geral () {
 }
 
 geral()
+*/
+
+//REFAZENDO O MESMO CODIGO EM POUCAS LINHAS
+
+const resultado = document.getElementById('container');
+const data = new Date();
+const hora = data.getHours();
+const min = data.getMinutes();
+resultado.innerHTML = `
+
+${data.toLocaleDateString('pt-br', {dateStyle: 'full'} )}<br/>
+${hora}:${min}
+
+`;
+

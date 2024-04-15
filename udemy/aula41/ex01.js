@@ -1,3 +1,4 @@
+
 function maiorNumero (num1, num2) {
     const maiorNum = Math.max(num1, num2) 
     return maiorNum
@@ -5,3 +6,5 @@ function maiorNumero (num1, num2) {
 
 const x = maiorNumero(10, 20)
 console.log(x)
+
+

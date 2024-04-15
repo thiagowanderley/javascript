@@ -27,9 +27,13 @@ function numeroAleatorioEntreDoisNumeros (num1, num2) {
     let numeroAleatorio = Math.round(Math.random() * (num1 - num2) + num2)
     return numeroAleatorio
 }
+const min = 10;
+const max = 50;
+let x = numeroAleatorioEntreDoisNumeros(min, max)
 
-let x = numeroAleatorioEntreDoisNumeros(10, 50)
-
-
+while (x != 30) {
+    x = numeroAleatorioEntreDoisNumeros(min, max)
+    console.log(x)
+}
 
 

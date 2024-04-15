@@ -30,9 +30,6 @@ function numeroAleatorioEntreDoisNumeros (num1, num2) {
 
 let x = numeroAleatorioEntreDoisNumeros(10, 50)
 
-while (x != 30) {
-    let x = numeroAleatorioEntreDoisNumeros(10,50)
-    console.log(x)
-}
+
 
 

@@ -1,5 +1,16 @@
+/*
 function ePaisagem (altura, largura) {
-   return largura > altura ? true : false
-}
+   return largura > altura ? 'É paisagem' : 'É retrato';
+};
+*/
 
-console.log(ePaisagem(20, 30))
+// ou:
+
+const ePaisagem = (altura, largura) => {return largura > altura;}
+
+const imagem = {
+   altura: 20,
+   largura: 30,
+};
+
+console.log(ePaisagem(imagem.altura, imagem.largura))

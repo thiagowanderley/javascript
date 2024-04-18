@@ -1,4 +1,5 @@
-//relogio
+//relogio - timer
+function relogio () {
 
 const relogio = document.querySelector('#timer');
 const iniciar = document.querySelector('#iniciar');
@@ -20,6 +21,7 @@ function relogioZerado (segundos) {
 }
 
 function iniciarContador () {
+    clearInterval(timer)
     timer = setInterval(function () {
         contador++
         relogio.innerHTML = relogioZerado(contador)
@@ -34,7 +36,12 @@ function pausarContador () {
 }
 
 function zerarContador () {
-    pausarContador()
-   relogio.innerHTML = relogioZerado(0);
+    clearInterval(timer)
+    contador = 0;
+   relogio.innerHTML = '00:00:00';
    relogio.style.color = 'black';
 }
+
+}
+
+relogio()

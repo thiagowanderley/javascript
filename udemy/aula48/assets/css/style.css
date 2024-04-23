@@ -1,5 +1,5 @@
 :root {
-    --cor-primaria: rgb(0, 0, 0);
+    --cor-primaria: rgb(49, 49, 49);
 }
 
 * {
@@ -43,7 +43,7 @@ form input:focus {
 form button {
     border: none;
     border-radius: 20px;
-    background-color: var(--cor-primaria);
+    background-color: rgb(70, 70, 70);
     height: 40px;
     font-size: 18px;
     cursor: pointer;

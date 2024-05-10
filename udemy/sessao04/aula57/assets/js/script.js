@@ -13,6 +13,7 @@ function criaCalculadora () {
 
             try {
                 conta = eval(conta);
+                
                 if (!conta) {
                     alert('Conta inválida');
                     return;
@@ -20,7 +21,8 @@ function criaCalculadora () {
 
                 this.display.value = conta;
             } catch(e) {
-                
+                alert('conta invalida');
+                return;
             }
         },
 

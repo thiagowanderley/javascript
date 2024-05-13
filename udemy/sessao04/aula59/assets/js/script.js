@@ -5,7 +5,7 @@ const display = document.getElementById('display');
         this.display.innerText = '';
     }
 
-    expressarDisplay(valor) {
+    expressarDisplay = (valor) => {
         display.innerText += valor
     }
 

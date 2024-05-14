@@ -1,29 +1,52 @@
 function Calculadora () {
-const display = document.getElementById('display');
 
-    this.limparDisplay = () => {
-        this.display.innerText = '';
+    this.display = document.getElementById('display');
+    
+    this.capturaClique = () => {
+        document.addEventListener('click', event => {
+            const el = event.target;
+
+            if (el.classList.contains('btn-num')) {this.addNumDisplay(el)};
+            if (el.classList.contains('btn-clear')) {this.clearDisplay()};
+            if (el.classList.contains('btn-del')) {this.deletOne()};
+            if (el.classList.contains('btn-eq')) {this.realizaConta()};
+        });
+    };
+
+    this.addNumDisplay = (valor) => {
+        this.display.value += valor.innerText;
+    };
+
+    this.clearDisplay = () => {
+        this.display.value = '';
+    };
+
+    this.deletOne = () => {
+        this.display.value = this.display.value.slice(0, -1);
+    };
+
+    this.realizaConta = () => {
+        const conta = this.display.value;
+        const validarEntrada = /^[\d()+\-*\/]+$/.test(this.display)? true : false; //VERIFICA STRING | REG EX
+
+        if (!conta || validarEntrada) {
+            alert('formato invalido')
+            this.display.value = '';
+        } else {
+            this.display.value = eval(conta);
+        }
+    };
+
+
+    //=========================================================================
+    this.inicia = () => { // PARAMETRO QUE VAI SER CHAMADO PARA INICIAR A FUNÇÃO
+        this.capturaClique();
     }
 
-    expressarDisplay = (valor) => {
-        display.innerText += valor
-    }
-
-    this.clickBotoes = () => {
-
-        document.addEventListener('click', (e) => {
-            const ev = e.target;
-
-            if(ev.classList.contains('btn-num')) {
-                expressarDisplay(ev.innerText);
-            }
-
-            if(ev.classList.contains('btn-clear')) {
-                limparDisplay()
-            }
-        })
-    }
+    
 }
 
 const calculadora = new Calculadora()
+calculadora.inicia();
+
 

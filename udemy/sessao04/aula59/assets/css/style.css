@@ -75,7 +75,7 @@ input#display {
     font-size: 1.4em;
 }
 
-button.btn-num {
+button.btn-num, button.btn-del, button.btn-eq, button.btn-clear {
     width: 100%;
     height: 100%;
     cursor: pointer;

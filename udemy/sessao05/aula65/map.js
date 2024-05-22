@@ -1,12 +1,15 @@
 // FILTER, MAP E REDUCE
 
 // MAP
-//Altera valores do array original
+/*
+=> Altera valores do array original
+
+=> Diferente do filter que faz um filtro dado uma certa restrição. O "map" mapeia todos os arrays e faz uma alteração do mesmo
+*/ 
 
 const numeros = [5, 50, 80, 1, 2, 3, 5, 8, 7, 11, 15, 22, 27];
-const dobraNumeros = numeros.map( valor => valor*2)
+const dobraNumeros = numeros.map( (valor, indice) => {return `${indice} => ${valor * 2}`})
 console.log(dobraNumeros)
-console.log(numeros)
 
 const pessoas = [
     {nome:'Thiago' ,idade: 22},
@@ -15,5 +18,13 @@ const pessoas = [
     {nome:'Carla' ,idade: 21},
     {nome:'Wallace' ,idade: 14}
 ];
+
+const apenasNomes = pessoas.map( obj => [obj.nome] )
+const apenasIdade = pessoas.map( obj => {return obj.idade})
+
+console.log(apenasNomes)
+console.log(apenasIdade)
+
+
 
 

@@ -19,11 +19,19 @@ const pessoas = [
     {nome:'Wallace' ,idade: 14}
 ];
 
-const apenasNomes = pessoas.map( obj => [obj.nome] )
-const apenasIdade = pessoas.map( obj => {return obj.idade})
+const apenasNomes = pessoas.map( obj => obj.nome );
+const apenasIdade = pessoas.map( obj => {
+    delete obj.nome 
+    return obj.idade
+});
+const adcId = pessoas.map( (obj, indice) => {
+    obj.id = indice
+    return obj
+});
 
-console.log(apenasNomes)
-console.log(apenasIdade)
+//console.log(apenasNomes)
+//console.log(adcId)
+console.log(pessoas)
 
 
 

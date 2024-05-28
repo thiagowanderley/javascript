@@ -1,18 +1,35 @@
 // GETTERS E SETTERS
 
-function Pessoa (nome, sobrenome) {
-    this.nome = nome;
-    this.sobrenome = sobrenome;
+// Getter => Obtem valor 
+// Setter => Configura o valor
 
-    Object.defineProperty(this, 'nome', {
+function Produto (nome, preco, estoque) {
+    this.nome = nome;
+    this.preco = preco;
+
+    let estoqueProt = estoque;
+    Object.defineProperty(this, 'estoque', {
         enumerable: true,
         configurable: true,
-        get: () => nome,
-        set: (valor) => {
-            if (typeof valor !== 'string') {console.log('error')}
+        get: () => estoqueProt,
+        set: valor => {
+            if (typeof valor !== 'number') {
+                throw new TypeError('error');
+            }
+            estoqueProt = valor;
         }
-});
-
+    });
 }
-const p1 = new Pessoa(8, 'Wanderley');
-console.log(p1);
+
+function criarProduto (nome) {
+    return {
+        get nome() {return nome},
+        set nome(valor) {
+            nome = valor;
+        }
+    }
+}
+
+const p1 = new Produto ('camiseta', 20, 3);
+p1.estoque = 40;
+console.log(p1.estoque);

@@ -26,12 +26,22 @@ Cpf.prototype.concatenandoPrimNum = function () {
 };
 
 Cpf.prototype.gerarCpf = function () {
-    cpf = this.concatenandoPrimNum();
-    
+    const cpfIn = this.concatenandoPrimNum();
+    const cpfLi = cpfIn.replace(/\D+/g, '');
+    const cpfAr = cpfLi.split('');
+    const cpfN = cpfAr.map(Number)
+    const resultado = [];
+
+    for (let i = 0; i < cpfN.length; i++) {
+        resultado.push(cpfIn[i] * (11 - i))
+        console.log(i)
+    }
+    return resultado;
 }
 
-const cpf = new Cpf ('579.739.65-');
+const cpf = new Cpf ('705.484.450-');
 console.log(cpf.primeiroNumCpf());
 console.log(cpf.concatenandoPrimNum());
+console.log(cpf.gerarCpf())
 
 

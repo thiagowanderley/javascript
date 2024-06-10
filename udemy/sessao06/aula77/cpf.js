@@ -16,8 +16,13 @@ Cpf.prototype.primeiroNumCpf = function () {
 
     resultReduce = result.reduce((acum, val) => acum + val, 0);
     const primeiroNum = 11 - (resultReduce % 11);
-    return primeiroNum > 9 ? 0 : primeiroNum; 
-};
+
+    if (cpfLimpo.length !== 9) {
+        throw new TypeError('cpf.lenght !== 9');
+        }
+
+        return primeiroNum > 9 ? 0 : primeiroNum; 
+    }
 
 Cpf.prototype.concatenandoPrimNum = function () {
     const primeiroNumCpf = this.primeiroNumCpf()
@@ -33,15 +38,23 @@ Cpf.prototype.gerarCpf = function () {
     const resultado = [];
 
     for (let i = 0; i < cpfN.length; i++) {
-        resultado.push(cpfIn[i] * (11 - i))
-        console.log(i)
+        resultado.push(cpfN[i] * (11 - i))
     }
-    return resultado;
+    
+     const resRedu = resultado.reduce((ac, val) => ac + val, 0)
+     const segNum = 11 - (resRedu % 11);
+     return segNum > 9 ? 0 : segNum;
 }
 
-const cpf = new Cpf ('705.484.450-');
-console.log(cpf.primeiroNumCpf());
-console.log(cpf.concatenandoPrimNum());
-console.log(cpf.gerarCpf())
+Cpf.prototype.cpfFinal = function () {
+    const segNum = this.gerarCpf();
+    const cpfIn = this.concatenandoPrimNum();
+    const cpfCompleto = cpfIn + segNum;
+    return cpfCompleto
+}
+
+const cpf = new Cpf ('070.987.720-');
+console.log(cpf.cpfFinal())
+
 
 

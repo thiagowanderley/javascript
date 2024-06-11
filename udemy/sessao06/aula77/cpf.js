@@ -43,6 +43,7 @@ Cpf.prototype.gerarCpf = function () {
     
      const resRedu = resultado.reduce((ac, val) => ac + val, 0)
      const segNum = 11 - (resRedu % 11);
+
      return segNum > 9 ? 0 : segNum;
 }
 
@@ -51,9 +52,9 @@ Cpf.prototype.cpfFinal = function () {
     const cpfIn = this.concatenandoPrimNum();
     const cpfCompleto = cpfIn + segNum;
     return cpfCompleto
-}
+} 
 
-const cpf = new Cpf ('070.987.720-');
+const cpf = new Cpf ('082.070.065-');
 console.log(cpf.cpfFinal())
 
 

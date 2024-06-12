@@ -6,7 +6,8 @@ function Cpf (ident) {
 
 Cpf.prototype.primeiroNumCpf = function () {
     const cpfLimpo = this.ident.replace(/\D+/g, '');
-    const cpfArray = cpfLimpo.split('');
+    const cpfReduzido = cpfLimpo.slice(0, -2);
+    const cpfArray = cpfReduzido.split('');
     const cpfNum = cpfArray.map(Number);
     const result = [];
 
@@ -17,7 +18,7 @@ Cpf.prototype.primeiroNumCpf = function () {
     resultReduce = result.reduce((acum, val) => acum + val, 0);
     const primeiroNum = 11 - (resultReduce % 11);
 
-    if (cpfLimpo.length !== 9) {
+    if (cpfLimpo.length !== 11) {
         throw new TypeError('cpf.lenght !== 9');
         }
 
@@ -26,7 +27,7 @@ Cpf.prototype.primeiroNumCpf = function () {
 
 Cpf.prototype.concatenandoPrimNum = function () {
     const primeiroNumCpf = this.primeiroNumCpf()
-    const concatenando = this.ident + primeiroNumCpf
+    const concatenando = this.ident.slice(0, -2) + primeiroNumCpf
     return concatenando
 };
 
@@ -54,8 +55,17 @@ Cpf.prototype.cpfFinal = function () {
     return cpfCompleto
 } 
 
-const cpf = new Cpf ('082.070.065-');
-console.log(cpf.cpfFinal())
+Cpf.prototype.validacao = function () {
+    const limpo = this.ident.replace(/\D+/g, '');
+    const cpfF = this.cpfFinal();
+    
+    const validacaoCpf = cpfF !== limpo? 'Invalido' : 'valido';
+    return validacaoCpf
+}
+
+const cpf = new Cpf ('082070065555');
+console.log(cpf.validacao())
+
 
 
 

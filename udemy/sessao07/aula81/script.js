@@ -6,10 +6,24 @@ class Carro {
         this.velocidade = 0;
     }
 
-    acelerar () {
-        if (this.velocidade >= 100) return
+    get _velocidade () {
+        console.log('GETTER')
+        let vel;
+        this.velocidade > 100 || this.velocidade < 0 ? vel = 'Val invalida' : vel = this.velocidade;
+        return vel 
+    }
 
-        this.velocidade = this.velocidade + 1
+    set _velocidade (val) {
+        console.log('SETTER')
+        if (typeof val !== 'number') return;
+        if ( val >= 100 || val < 0) return;
+        val = this.velocidade
+    }
+    
+    acelerar (val) {
+        if (val >= 100) return this.velocidade = 100
+
+        this.velocidade = this.velocidade + val
         // ou => this.velocidade++
     }
 
@@ -19,12 +33,10 @@ class Carro {
         this.velocidade = this.velocidade - 1
         // ou => this.velocidade--
     }
+        
 }
 
 const c1 = new Carro ('Fusca');
-
-for (i = 0; i <= 200; i++) {
-    c1.acelerar()
-}
-
+c1.acelerar(2)
+console.log(c1._velocidade = 97896)
 console.log(c1)

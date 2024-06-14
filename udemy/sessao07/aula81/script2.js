@@ -1,27 +1,31 @@
 /*
     GETTER => é para acessar o valor.
     SETTER => é para definir ou mudar o valor.
+
+    GETTER serve exclusivamente para representar um valor, 
+    já o SETTER altera um determinado valor e precisa de um parametro
+
+    Diferente de Metodos. Para representar um GET ou SET, temos:
+    GET => constante.get ~ Não tem parenteses
+    SET => constante.set = ~ Precisa de um sinal  
 */
 
-class Cofre {
-    constructor () {
-        this._moeda = 0
+class Pessoa {
+    constructor (nome, sobrenome) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
     }
 
-    get verMoeda () {
-        return this._moeda
+    get nomeCompleto () {
+        return this.nome + ' ' + this.sobrenome
     }
 
-    set adcMoeda (val) {
-        if (val <= 0) {
-            return console.log('error')
-        } else {
-            this._moeda += val
-        }
-    } 
+    set nomeCompleto (val) {
+        val = val.split(' ');
+        this.nome = val.shift();
+        this.sobrenome = val.join(' ');
+    }
 }
 
-const cofre = new Cofre();
-cofre.adcMoeda = 23
-console.log(cofre.verMoeda)
-
+const p1 = new Pessoa ('Thiago', 'Wanderley')
+console.log(p1)

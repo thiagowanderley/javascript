@@ -23,8 +23,12 @@ class DispositivoEletronico {
     }
 }
 
+class smartphone extends DispositivoEletronico {}
+
 const dis1 = new DispositivoEletronico('Iphone');
+const dis2 = new smartphone('Samsumg')
 dis1.ligar();
 dis1.ligar();
 dis1.desligar();
 console.log(dis1)
+console.log(dis2)

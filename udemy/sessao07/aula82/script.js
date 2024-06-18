@@ -1,3 +1,5 @@
+// HERANÇA EM CLASS
+
 class DispositivoEletronico {
     constructor (nome) {
         this.nome = nome;

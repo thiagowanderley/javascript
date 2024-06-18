@@ -25,12 +25,27 @@ class DispositivoEletronico {
     }
 }
 
-class smartphone extends DispositivoEletronico {}
+class smartphone extends DispositivoEletronico {
+    constructor (nome, cor, modelo) {
+        super (nome); // SUPERCLASS
+        this.cor = cor;
+        this.modelo = modelo;
+    }
+}
+
+class tablet extends DispositivoEletronico {
+    constructor (nome, temWiFi) {
+        super (nome);
+        this.temWiFi = temWiFi;
+    }
+
+    ligar () {
+        console.log('Está ligado')
+    }
+}
 
 const dis1 = new DispositivoEletronico('Iphone');
-const dis2 = new smartphone('Samsumg')
-dis1.ligar();
-dis1.ligar();
-dis1.desligar();
-console.log(dis1)
-console.log(dis2)
+const dis2 = new smartphone('Samsumg', 'Preto', 's24')
+const dis3 = new tablet('Ipad', true);
+
+console.log(dis3);

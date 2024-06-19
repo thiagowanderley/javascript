@@ -1,6 +1,12 @@
 class Cpf {
     constructor (cpf) {
-        this.cpf = cpf
+        this.cpf = cpf;
+    }
+
+    condicional () {
+        if (!this.cpf || typeof this.cpf !== 'number' || this.cpf.length !== 11) {
+            throw new Error ('error')
+        }
     }
 
     cpfReduzido () {

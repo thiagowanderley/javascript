@@ -30,7 +30,22 @@ class ValidaForm {
                 this.criaError (campo, `O campo "${label}" não pode estar vazio`);
                 valid = false
             }
+
+            if (campo.classList.contains('cpf')) {
+                if (!this.validaCPF(campo)) valid = false;
+            }
         }
+    }
+
+    validaCPF (campo) {
+        const cpf = new this.validaCPF(campo.value);
+
+        if (!cpf.valid()) {
+            this.criaError(campo, 'CPF invalido');
+            return false
+        }
+
+        return true
     }
 
     criaError (campo, msg) {

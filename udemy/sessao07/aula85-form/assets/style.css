@@ -30,7 +30,7 @@ form input, form label, form button {
 }
 
 form input {
-    font-size: 24px;
+    font-size: 1em;
     height: 40px;
     padding: 0 20px;
 }
@@ -48,6 +48,7 @@ form button {
     height: 40px;
     font-size: 18px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 form button:hover {

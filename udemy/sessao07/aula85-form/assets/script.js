@@ -1,63 +1,35 @@
 class ValidaForm {
     constructor () {
-        this.formulario = document.querySelector('#form');
-
-        this.events() // Carrega automaticamente o metodo
+        this.formulario = document.querySelector('#form')
+        this.eventos();
     }
 
-    events () {
+    eventos () {
         this.formulario.addEventListener('submit', e => {
-            this.handleSubmit(e);
+            this.handleSubmit(e)
         })
     }
 
     handleSubmit (e) {
-        e.preventDefault ();
-        const camposValidos = this.camposValidos();
+        e.preventDefault();
+        const camposValidos = this.checaCampos();
     }
 
-    camposValidos () {
+    checaCampos () {
         let valid = true;
 
-        for (let error of this.formulario.querySelectorAll('.error-text')) {
-            error.remove();
+        for (let campos of this.formulario.querySelectorAll('.input')) {
+            if (typeof campos.value === 'undefined') {
+                this.criaError()
+            } 
         }
-
-        for (let campo of this.formulario.querySelectorAll('.input')) {
-            const label = campo.previousElementSibling.innerText;
-
-            if (!campo.value) {
-                this.criaError (campo, `O campo "${label}" não pode estar vazio`);
-                valid = false
-            }
-
-            if (campo.classList.contains('cpf')) {
-                if (!this.validaCPF(campo)) valid = false;
-            }
-        }
-    }
-
-    validaCPF (campo) {
-        const cpf = new this.validaCPF(campo.value);
-
-        if (!cpf.valid()) {
-            this.criaError(campo, 'CPF invalido');
-            return false
-        }
-
-        return true
     }
 
     criaError (campo, msg) {
-        const newDiv = document.createElement('div');
-        newDiv.innerHTML = msg;
-        newDiv.style.color = 'red';
-        newDiv.style.fontSize = '0.8em'
-        newDiv.classList.add('error-text');
-        campo.insertAdjacentElement('afterend', newDiv);
+        const div = document.createElement('div');
+        div.innerHTML = msg;
+        div.setAttribute('class', 'msg-error ')
     }
-
 }
 
-const validaForm = new ValidaForm ()
-//console.log(validaForm.events())
+const valida = new ValidaForm()

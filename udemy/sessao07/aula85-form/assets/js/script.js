@@ -1,7 +1,8 @@
 
 class ValidaForm {
     constructor () {
-        this.formulario = document.querySelector('#form')
+        this.formulario = document.querySelector('#form');
+        
         this.eventos();
     }
 
@@ -19,19 +20,32 @@ class ValidaForm {
 
     checaCampos () {
         let valid = true;
-        const usuario = this.formulario.querySelector('#usuario').value;
+        this.cpf = document.querySelector('.cpf');
+        this.usuario = document.querySelector('.usuario');
 
         for (let campos of this.formulario.querySelectorAll('.input')) {
+
             if (!campos.value) {
                 this.criaError(campos, `O campo <strong>${campos.previousElementSibling.innerText}</strong> não pode está em branco`);
+                
                 valid = false;
             } 
+
         }
 
-        if (this.usuario.lenght < 3 || this.usuario.lenght > 12) {
-            this.criaError(usuario, `Usuario precisa ter entre 3 a 12 caracteres`)
+        if (this.validaUsuario(this.usuario) !== true) {
+            this.criaError(this.usuario, 'Usuario precisa ter entre 3 a 12 caracteres')
+
+            valid = false
         }
+
+        if (this.validaCPF(this.cpf) !== true) {
+            this.criaError(this.cpf, 'Campo CPF Invalido')
+
+            valid = false
+        } 
     }
+
 
     criaError (campo, msg) {
         const div = document.createElement('div');
@@ -39,6 +53,16 @@ class ValidaForm {
         div.setAttribute('class', 'msg-error');
         campo.insertAdjacentElement('afterend', div);
         // div => elemento que vai ser inserido apos o campo
+    }
+
+    validaCPF (campo) {
+        const inputCpf = new Cpf(campo.value);
+        return inputCpf.validacao();
+    }
+
+    validaUsuario (campo) {
+        const validacao = campo.value.length >= 3 && campo.value.length <= 12 ? true : false;
+         return validacao
     }
 
     limpaError () {

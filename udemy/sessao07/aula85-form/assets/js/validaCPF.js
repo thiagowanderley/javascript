@@ -71,11 +71,7 @@ class Cpf {
         const primeiroNum = this.primeiroDigito()
         const segundoNum = this.segundoDigito()
 
-        return this.cpf === cpfReduzido + primeiroNum + segundoNum ? 'Valido' : 'Invalido';
+        return this.cpf === cpfReduzido + primeiroNum + segundoNum ? true : false;
         
     }
 }
-
-
-const cpf = new Cpf('08207006579')
-console.log(cpf.validacao())

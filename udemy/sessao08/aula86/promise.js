@@ -1,18 +1,25 @@
-let minhaPromise = new Promise ( (resolve, reject) => {
+function saudacao (msg, time) {
 
-    let sucesso = Math.floor(Math.random() * (50 - 25 + 1)) + 25
+    const myPromise = new Promise((res, rej) => {
 
-    if (sucesso === 37) {
-        resolve('OK')
+    setTimeout( () => {
+        console.log(msg)
+    }, time * 1000)
+
+    if (time < 5) {
+        res('Mensagem enviada com sucesso, enviada abaixo de 5 seg')
     } else {
-        reject('not OK')
+        msg = 'error:'
+        rej('Tempo excedido, ultrapassou 5 seg')
     }
-
-    
-});
-
-minhaPromise.then( (msgS) => {
-    console.log(msgS)
-}).catch( (msgE) => {
-    console.log(msgE)
 })
+
+myPromise.then( data => {
+    setTimeout( () => {console.log(data)}, time*1000 + 1)
+}).catch( data => {
+    setTimeout( () => {console.log(data)}, time*1000 + 1)
+})
+
+}
+
+saudacao('ola mundo', 6)

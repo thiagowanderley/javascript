@@ -1,8 +1,5 @@
 // XMLHttpRequest -> AJAX
 
-const url = 'pagina1.html';
-
-
 document.addEventListener('click', e => {
     const el = e.target;
     const tag = el.tagName.toLowerCase();
@@ -13,20 +10,18 @@ document.addEventListener('click', e => {
     }
 });
 
-async function carregaPagina(el)  {
+function carregaPagina(el)  {
     const href = el.getAttribute('href');
-
-    const objConfig = {
-        method: 'GET',
-        url: href
-    };
-    
-    try {
-        const response = await request(objConfig);
-        carregaResultado(response);
-    } catch (e) {
-        console.log(e)
-    }
+        
+    fetch(href)
+    .then( resposta => {
+        if (!resposta.ok) throw new Error('error' + ' ' + resposta.status)
+        return resposta.text()
+    })
+    .then( html => {
+        carregaResultado(html);
+    })
+    .catch( e => console.warn(e))
 }
 
 function carregaResultado(response) {

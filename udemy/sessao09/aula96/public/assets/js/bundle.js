@@ -2,6 +2,63 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/modules/formGeraSenha.js":
+/*!**************************************!*\
+  !*** ./src/modules/formGeraSenha.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _geradores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./geradores */ "./src/modules/geradores.js");
+
+var senhaGerada = document.querySelector('');
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {});
+
+/***/ }),
+
+/***/ "./src/modules/geradores.js":
+/*!**********************************!*\
+  !*** ./src/modules/geradores.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ gerarSenha)
+/* harmony export */ });
+var rand = function rand(min, max) {
+  Math.floor(Math.random() * (max - min) + min);
+};
+var geraMaiuscula = function geraMaiuscula() {
+  String.fromCharCode(rand(65, 91));
+};
+var geraMinuscula = function geraMinuscula() {
+  String.fromCharCode(rand(97, 123));
+};
+var geraNumero = function geraNumero() {
+  String.fromCharCode(rand(48, 58));
+};
+var simbolos = '.;/,=+~^?|!@#$%¨&*[]';
+var geraSimbolo = function geraSimbolo() {
+  simbolos[rand(0, simbolos.length)];
+};
+function gerarSenha(qtd, maiusculas, minusculas, numeros, simbolos) {
+  var senhaArray = [];
+  qtd = Number(qtd);
+  for (var i = 0; i <= qtd; i++) {
+    maiusculas && senhaArray.push(geraMaiuscula());
+    minusculas && senhaArray.push(geraMinuscula());
+    numeros && senhaArray.push(geraNumero());
+    simbolos && senhaArray.push(geraSimbolo());
+  }
+  return senhaArray.join('').slice(0, qtd);
+}
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/assets/css/style.css":
 /*!************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/assets/css/style.css ***!
@@ -75,7 +132,12 @@ form button {
 form button:hover {
     background-color:  rgb(23, 58, 66); 
     color: white;
-}`, "",{"version":3,"sources":["webpack://./src/assets/css/style.css"],"names":[],"mappings":"AAAA;IACI,iCAAiC;AACrC;;AAEA;IACI,6EAA6E;IAC7E,sBAAsB;IACtB,aAAa;AACjB;;AAEA;IACI,SAAS;IACT,UAAU;IACV,qCAAqC;AACzC;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,uBAAuB;IACvB,aAAa;IACb,mBAAmB;;AAEvB;;AAEA;IACI,cAAc;IACd,WAAW;IACX,mBAAmB;AACvB;;AAEA;IACI,eAAe;IACf,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,qCAAqC;IACrC,mBAAmB;AACvB;;AAEA;IACI,YAAY;IACZ,mBAAmB;IACnB,qCAAqC;IACrC,YAAY;IACZ,eAAe;IACf,eAAe;AACnB;;AAEA;IACI,kCAAkC;IAClC,YAAY;AAChB","sourcesContent":[":root {\r\n    --cor-primaria: rgb(30, 160, 189);\r\n}\r\n\r\n* {\r\n    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;\r\n    box-sizing: border-box;\r\n    outline: none;\r\n}\r\n\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    background-color: var(--cor-primaria);\r\n}\r\n\r\n#container {\r\n    max-width: 640px;\r\n    margin: 50px auto;\r\n    background-color: white;\r\n    padding: 20px;\r\n    border-radius: 10px;\r\n    \r\n}\r\n\r\nform input, form label, form button {\r\n    display: block;\r\n    width: 100%;\r\n    margin-bottom: 10px;\r\n}\r\n\r\nform input {\r\n    font-size: 24px;\r\n    height: 40px;\r\n    padding: 0 20px;\r\n}\r\n\r\nform input:focus {\r\n    border: solid var(--cor-primaria) 2px;\r\n    border-radius: 10px;\r\n}\r\n\r\nform button {\r\n    border: none;\r\n    border-radius: 20px;\r\n    background-color: var(--cor-primaria);\r\n    height: 40px;\r\n    font-size: 18px;\r\n    cursor: pointer;\r\n}\r\n\r\nform button:hover {\r\n    background-color:  rgb(23, 58, 66); \r\n    color: white;\r\n}"],"sourceRoot":""}]);
+}
+
+.senha-gerada {
+    font-size: 2.0em;
+    color: var(--cor-primaria);
+}`, "",{"version":3,"sources":["webpack://./src/assets/css/style.css"],"names":[],"mappings":"AAAA;IACI,iCAAiC;AACrC;;AAEA;IACI,6EAA6E;IAC7E,sBAAsB;IACtB,aAAa;AACjB;;AAEA;IACI,SAAS;IACT,UAAU;IACV,qCAAqC;AACzC;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,uBAAuB;IACvB,aAAa;IACb,mBAAmB;;AAEvB;;AAEA;IACI,cAAc;IACd,WAAW;IACX,mBAAmB;AACvB;;AAEA;IACI,eAAe;IACf,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,qCAAqC;IACrC,mBAAmB;AACvB;;AAEA;IACI,YAAY;IACZ,mBAAmB;IACnB,qCAAqC;IACrC,YAAY;IACZ,eAAe;IACf,eAAe;AACnB;;AAEA;IACI,kCAAkC;IAClC,YAAY;AAChB;;AAEA;IACI,gBAAgB;IAChB,0BAA0B;AAC9B","sourcesContent":[":root {\r\n    --cor-primaria: rgb(30, 160, 189);\r\n}\r\n\r\n* {\r\n    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;\r\n    box-sizing: border-box;\r\n    outline: none;\r\n}\r\n\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    background-color: var(--cor-primaria);\r\n}\r\n\r\n#container {\r\n    max-width: 640px;\r\n    margin: 50px auto;\r\n    background-color: white;\r\n    padding: 20px;\r\n    border-radius: 10px;\r\n    \r\n}\r\n\r\nform input, form label, form button {\r\n    display: block;\r\n    width: 100%;\r\n    margin-bottom: 10px;\r\n}\r\n\r\nform input {\r\n    font-size: 24px;\r\n    height: 40px;\r\n    padding: 0 20px;\r\n}\r\n\r\nform input:focus {\r\n    border: solid var(--cor-primaria) 2px;\r\n    border-radius: 10px;\r\n}\r\n\r\nform button {\r\n    border: none;\r\n    border-radius: 20px;\r\n    background-color: var(--cor-primaria);\r\n    height: 40px;\r\n    font-size: 18px;\r\n    cursor: pointer;\r\n}\r\n\r\nform button:hover {\r\n    background-color:  rgb(23, 58, 66); \r\n    color: white;\r\n}\r\n\r\n.senha-gerada {\r\n    font-size: 2.0em;\r\n    color: var(--cor-primaria);\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -598,8 +660,11 @@ var __webpack_exports__ = {};
   !*** ./src/main.js ***!
   \*********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/css/style.css */ "./src/assets/css/style.css");
+/* harmony import */ var _modules_formGeraSenha__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/formGeraSenha */ "./src/modules/formGeraSenha.js");
+/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/css/style.css */ "./src/assets/css/style.css");
 
+
+(0,_modules_formGeraSenha__WEBPACK_IMPORTED_MODULE_0__["default"])();
 /******/ })()
 ;
 //# sourceMappingURL=bundle.js.map

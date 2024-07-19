@@ -53,3 +53,8 @@ form button:hover {
     background-color:  rgb(23, 58, 66); 
     color: white;
 }
+
+.senha-gerada {
+    font-size: 2.0em;
+    color: var(--cor-primaria);
+}

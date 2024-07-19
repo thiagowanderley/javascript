@@ -8,6 +8,6 @@ export default class GeraCPF {
 
     geraNovoCpf () {
         const cpfSemDigito = this.rand();
-        const digito1 = Cpf.
+        const digito1 = Cpf
     }
 }

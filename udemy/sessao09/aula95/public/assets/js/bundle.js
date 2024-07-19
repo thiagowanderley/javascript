@@ -1,13 +1,145 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/modules/Cpf.js":
+/*!****************************!*\
+  !*** ./src/modules/Cpf.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Cpf)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var Cpf = /*#__PURE__*/function () {
+  function Cpf(cpf) {
+    _classCallCheck(this, Cpf);
+    this.cpf = cpf;
+  }
+  return _createClass(Cpf, [{
+    key: "condicional",
+    value: function condicional() {
+      if (!this.cpf || typeof this.cpf !== 'number' || this.cpf.length !== 11) {
+        throw new Error('error');
+      }
+    }
+  }, {
+    key: "cpfReduzido",
+    value: function cpfReduzido() {
+      var cpfReduzido = this.cpf.slice(0, -2);
+      return cpfReduzido;
+    }
+  }, {
+    key: "cpfArray",
+    value: function cpfArray() {
+      var cpf = this.cpfReduzido();
+      var cpfString = cpf.split('');
+      var cpfArray = cpfString.map(Number);
+      return cpfArray;
+    }
+  }, {
+    key: "primeiroDigito",
+    value: function primeiroDigito() {
+      var cpf = this.cpfArray();
+      var result = [];
+      for (var i = 0; i < cpf.length; i++) {
+        result.push(cpf[i] * (10 - i));
+      }
+      var cpfReduce = result.reduce(function (acum, val) {
+        return acum + val;
+      }, 0);
+      var primeiroDigito = 11 - cpfReduce % 11;
+      return primeiroDigito > 9 ? 0 : primeiroDigito;
+    }
+  }, {
+    key: "cpfIncompleto",
+    value: function cpfIncompleto() {
+      var primeiroDigito = this.primeiroDigito();
+      var cpfReduzido = this.cpfReduzido();
+      return cpfReduzido + primeiroDigito;
+    }
+  }, {
+    key: "arrayIncompleto",
+    value: function arrayIncompleto() {
+      var cpf = this.cpfIncompleto();
+      var array = cpf.split('');
+      var number = array.map(Number);
+      return number;
+    }
+  }, {
+    key: "segundoDigito",
+    value: function segundoDigito() {
+      var cpf = this.arrayIncompleto();
+      var result = [];
+      for (var i = 0; i < cpf.length; i++) {
+        result.push(cpf[i] * (11 - i));
+      }
+      var reduce = result.reduce(function (acum, val) {
+        return acum + val;
+      }, 0);
+      var segundoNum = 11 - reduce % 11;
+      return segundoNum > 9 ? 0 : segundoNum;
+    }
+  }, {
+    key: "validacao",
+    value: function validacao() {
+      var cpfReduzido = this.cpfReduzido();
+      var primeiroNum = this.primeiroDigito();
+      var segundoNum = this.segundoDigito();
+      return this.cpf === cpfReduzido + primeiroNum + segundoNum ? true : false;
+    }
+  }]);
+}();
+
+console.log('cheguei');
+
+/***/ }),
 
 /***/ "./src/modules/GeraCPF.js":
 /*!********************************!*\
   !*** ./src/modules/GeraCPF.js ***!
   \********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\src\\modules\\GeraCPF.js: Unexpected token (12:4)\n\n\u001b[0m \u001b[90m 10 |\u001b[39m         \u001b[36mconst\u001b[39m cpfSemDigito \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mrand()\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m         \u001b[36mconst\u001b[39m digito1 \u001b[33m=\u001b[39m \u001b[33mCpf\u001b[39m\u001b[33m.\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m     }\n \u001b[90m    |\u001b[39m     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m }\u001b[0m\n    at constructor (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:351:19)\n    at Parser.raise (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:3237:19)\n    at Parser.unexpected (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:3257:16)\n    at Parser.parseIdentifierName (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:11716:12)\n    at Parser.parseIdentifier (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:11699:23)\n    at Parser.parseMember (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:10644:28)\n    at Parser.parseSubscript (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:10623:21)\n    at Parser.parseSubscripts (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:10592:19)\n    at Parser.parseExprSubscripts (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:10583:17)\n    at Parser.parseUpdate (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:10562:21)\n    at Parser.parseMaybeUnary (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:10540:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:10394:61)\n    at Parser.parseExprOps (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:10399:23)\n    at Parser.parseMaybeConditional (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:10376:23)\n    at Parser.parseMaybeAssign (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:10337:21)\n    at C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:10307:39\n    at Parser.allowInAnd (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:11928:16)\n    at Parser.parseMaybeAssignAllowIn (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:10307:17)\n    at Parser.parseVar (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12861:91)\n    at Parser.parseVarStatement (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12707:10)\n    at Parser.parseStatementContent (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12319:23)\n    at Parser.parseStatementLike (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12236:17)\n    at Parser.parseStatementListItem (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12216:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12793:61)\n    at Parser.parseBlockBody (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12786:10)\n    at Parser.parseBlock (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12774:10)\n    at Parser.parseFunctionBody (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:11613:24)\n    at Parser.parseFunctionBodyAndFinish (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:11599:10)\n    at Parser.parseMethod (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:11557:31)\n    at Parser.pushClassMethod (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:13202:30)\n    at Parser.parseClassMemberWithIsStatic (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:13090:12)\n    at Parser.parseClassMember (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:13039:10)\n    at C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12993:14\n    at Parser.withSmartMixTopicForbiddingContext (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:11910:14)\n    at Parser.parseClassBody (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12975:10)\n    at Parser.parseClass (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12950:22)\n    at Parser.parseExportDefaultExpression (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:13382:19)\n    at Parser.parseExport (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:13301:25)\n    at Parser.parseStatementContent (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12349:27)\n    at Parser.parseStatementLike (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12236:17)\n    at Parser.parseModuleItem (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12213:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12793:36)\n    at Parser.parseBlockBody (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12786:10)\n    at Parser.parseProgram (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12113:10)\n    at Parser.parseTopLevel (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:12103:25)\n    at Parser.parse (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:13922:10)\n    at parse (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\parser\\lib\\index.js:13964:38)\n    at parser (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\core\\lib\\parser\\index.js:41:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (C:\\Users\\usuario\\Documents\\Estudos\\javascript\\udemy\\sessao09\\aula95\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:64:37)");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ GeraCPF)
+/* harmony export */ });
+/* harmony import */ var _Cpf__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Cpf */ "./src/modules/Cpf.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+var GeraCPF = /*#__PURE__*/function () {
+  function GeraCPF() {
+    _classCallCheck(this, GeraCPF);
+  }
+  return _createClass(GeraCPF, [{
+    key: "rand",
+    value: function rand() {
+      var min = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 100000000;
+      var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 999999999;
+      return String(Math.floor(Math.random() * (max - min) + min));
+    }
+  }, {
+    key: "geraNovoCpf",
+    value: function geraNovoCpf() {
+      var cpfSemDigito = this.rand();
+      var digito1 = _Cpf__WEBPACK_IMPORTED_MODULE_0__["default"];
+    }
+  }]);
+}();
+
 
 /***/ }),
 
@@ -17,7 +149,6 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
   \************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -98,7 +229,6 @@ form button:hover {
   \*****************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /*
@@ -193,7 +323,6 @@ module.exports = function (cssWithMappingToString) {
   \************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = function (item) {
@@ -219,7 +348,6 @@ module.exports = function (item) {
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -272,7 +400,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \****************************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 var stylesInDOM = [];
@@ -366,7 +493,6 @@ module.exports = function (list, options) {
   \********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 var memo = {};
@@ -410,7 +536,6 @@ module.exports = insertBySelector;
   \**********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -430,7 +555,6 @@ module.exports = insertStyleElement;
   \**********************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -450,7 +574,6 @@ module.exports = setAttributesWithoutAttributes;
   \***************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -521,7 +644,6 @@ module.exports = domAPI;
   \*********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -613,9 +735,6 @@ module.exports = styleTagTransform;
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
 /*!*********************!*\
   !*** ./src/main.js ***!
   \*********************/
@@ -623,8 +742,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_GeraCPF__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/GeraCPF */ "./src/modules/GeraCPF.js");
 /* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/css/style.css */ "./src/assets/css/style.css");
 
-
-})();
 
 /******/ })()
 ;

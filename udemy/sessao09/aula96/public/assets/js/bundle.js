@@ -14,8 +14,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _geradores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./geradores */ "./src/modules/geradores.js");
 
-var senhaGerada = document.querySelector('');
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {});
+var senhaGerada = document.querySelector('.senha-gerada');
+var qtdCaracteres = document.querySelector('.qntd-char').value;
+var checkMaiuscula = document.querySelector('.check-maiuscula');
+var checkMinuscula = document.querySelector('.check-minuscula');
+var checkSimbolos = document.querySelector('.check-simbolos');
+var checkNumeros = document.querySelector('.check-numeros');
+var btnGerarSenha = document.querySelector('gerar-senha');
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
+  btnGerarSenha.addEventListener('click', function () {
+    senhaGerada.innerHTML = gera();
+  });
+});
+function gera() {
+  var senha = (0,_geradores__WEBPACK_IMPORTED_MODULE_0__["default"])(qtdCaracteres.value, checkMaiuscula.Checked, checkMinuscula.checked, checkNumeros.checked, checkSimbolos.checked);
+  return senha;
+}
 
 /***/ }),
 
@@ -48,7 +62,7 @@ var geraSimbolo = function geraSimbolo() {
 function gerarSenha(qtd, maiusculas, minusculas, numeros, simbolos) {
   var senhaArray = [];
   qtd = Number(qtd);
-  for (var i = 0; i <= qtd; i++) {
+  for (var i = 0; i < qtd; i++) {
     maiusculas && senhaArray.push(geraMaiuscula());
     minusculas && senhaArray.push(geraMinuscula());
     numeros && senhaArray.push(geraNumero());

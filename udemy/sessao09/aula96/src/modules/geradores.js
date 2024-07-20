@@ -24,7 +24,7 @@ export default function gerarSenha (qtd, maiusculas, minusculas, numeros, simbol
     const senhaArray = [];
     qtd = Number(qtd);
 
-    for(let i = 0; i <= qtd; i++) {
+    for(let i = 0; i < qtd; i++) {
         maiusculas && senhaArray.push(geraMaiuscula());
         minusculas && senhaArray.push(geraMinuscula());
         numeros && senhaArray.push(geraNumero());
